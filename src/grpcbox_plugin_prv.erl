@@ -36,6 +36,7 @@ do(State) ->
                AppInfo ->
                    [AppInfo]
            end,
+    io_lib:format("[lugao] Apps ~p~n", [Apps]),
     {Options, _} = rebar_state:command_parsed_args(State),
     lists:foreach(fun(AppInfo) -> handle_app(AppInfo, Options, State) end, Apps),
     {ok, State}.
